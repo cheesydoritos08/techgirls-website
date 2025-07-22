@@ -1,0 +1,89 @@
+/* Makes borders and padding inclusive in sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Div containing all other divs */
+#main-website {
+  border: 3px green dotted;
+  margin: 1rem 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clears the style from headings */
+.clear-h-style {
+  margin: 0;
+  font-weight: 100;
+}
+
+/* Specificies a standard for all sections */
+section {
+  display: flex;
+  border: 3px red dotted;
+  margin: 10px;
+}
+
+/* ---- header-section styling ---- */
+.header-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 5rem;
+  justify-content: space-around;
+}
+
+/* --- center-section styling ---- */
+#center-section {
+  display: flex;
+}
+
+/* --- main-page-section styling  --- */
+.main-page-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+/* title bar styling */
+#about-me-title-bar {
+  border: 3px green dotted;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+
+#desktop-corner-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+#desktop-corner-icons div {
+  width: 1.5em;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  border: 3px green dotted;
+}
+
+/* about me container styling */
+#about-me-container {
+  padding: 0 1em;
+  border: 3px green dotted;
+}
+
+/* about me content styling */
+#about-me-content img {
+  max-width: 200px;
+  float: right;
+}
+
+#about-me-content iframe {
+  width: 100%;
+}
+
+/* sidebar styling */
+.sidebar-section {
+  width: 100%;
+}
