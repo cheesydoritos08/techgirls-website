@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+    <script src="index.js" defer></script>
     <title>HTML + CSS</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,7 +21,7 @@
         <div class="desktop-title-bar">
           <h2 class="clear-h-style">Directory</h2>
           <div class="desktop-corner-icons">
-            <div>-</div>
+            <div> </div>
             <div>X</div>
             <div>☐</div>
           </div>
@@ -30,6 +33,14 @@
             <li>hello</li>
             <li>hello</li>
           </ul>
+        <div class="desktop-title-bar">
+          <h2 class="clear-h-style"> Header </h2>
+          <div class="desktop-corner-icons">
+            <div>-</div>
+            <div>X</div>
+            <div>☐</div>
+          </div>
+        </div>          
       </section>
       <section class="main-page-section">
         <div class="desktop-title-bar">
@@ -85,6 +96,47 @@
         <div>
             me
         </div>
+        <div class="desktop-title-bar">
+          <h2 class="clear-h-style">Music Player</h2>
+          <div class="desktop-corner-icons">
+            <div>-</div>
+            <div>X</div>
+            <div>☐</div>
+          </div>
+
+        </div>
+        <div id="musicplayer">
+                        <!-- Music player by adilene@adilene.net! Much thanks to them ^^ -->
+                        <div>
+                            <marquee scrollamount="8" class="songtitle"></marquee>
+                        </div>
+                        
+                        <table class="controls">
+                            <tr>
+                                <td>
+                                    <div class="prev-track" onclick="prevTrack()"><span class="material-icons md-48">skip_previous</span></div>
+                                </td>
+                                <td>
+                                    <div class="playpause-track" onclick="playpauseTrack()">
+                                        <i class="material-icons">play_circle</i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="next-track" onclick="nextTrack()"><i class="material-icons">skip_next</i></div>
+                                </td>
+                            </tr>
+                        </table>
+                 
+                        <div class="seeking">
+                            <div class="current-time">00:00</div>
+                 
+                            <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                 
+                            <div class="total-duration">0:00</div>
+                        </div>
+                 
+                        <audio id="music" src=""></audio> 
+                    </div>
       </section>
     </section>
     <section class="footer-section">Footer</section>
