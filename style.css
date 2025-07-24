@@ -202,17 +202,27 @@ section {
 
 /* music player  styling*/
 #musicplayer{
-    background-color: var(--secondary-color); /* background color of player */
+    background-image: url("imgs/sidebar_background.jpg"); /* background color of player */
+    background-size: 8em;
+
     width: 100%; /* width of the player */
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-direction: column;
 }
 
 /* make the buttons centered and a different color from the music player background */
+#musicplayer-buttons {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  margin: 0;
+  border: 0;
+  border-bottom: var(--inner-border-width) var(--primary-border-color) double;
 
+}
 
 .songtitle{
     padding: 5px; /* padding around song title */
