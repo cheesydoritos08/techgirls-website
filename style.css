@@ -65,14 +65,37 @@ section {
   justify-content: end;
 }
 
-.header-section marquee {
+
+/* marquee styling */
+.header-section .marquee p {
+    margin: .5em 0;
+    padding-left: 50%;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-150%);
+  }
+
+}
+
+.header-section .marquee {
   background-color: var(--primary-color);
   background: linear-gradient(10deg, var(--secondary-color), var(--teritary-color), var(--primary-color) 50%);
   border-top: var(--inner-border-width) var(--primary-border-color) double;
-  padding: .5em 0;
   font-family: var(--primary-font);
   text-shadow: 1px 2px var(--primary-border-color);
+  align-self: stretch;
+  overflow: hidden;
 }
+
+
 
 /* --- center-section styling ---- */
 #center-section {
@@ -88,6 +111,7 @@ section {
   flex-direction: column;
   background-image: url("imgs/main_section_background.gif");
 }
+
 
 /* title bar styling */
 .desktop-title-bar {
@@ -164,6 +188,7 @@ section {
   flex-direction: column;
   background-color: var(--secondary-color);
 }
+/* left sidebar styling */
 
 /* directory styling */
 .directory-section {
@@ -177,7 +202,10 @@ section {
 }
 
 /* right sidebar styling */
-
+#chatbox {
+  display: flex;
+  height: 100%;
+}
 /* random art styling */
 #random-art-section {
   display: flex;
@@ -200,7 +228,7 @@ section {
 }
 
 
-/* music player  styling*/
+/* music player styling*/
 #musicplayer{
     background-image: url("imgs/sidebar_background.jpg"); /* background color of player */
     background-size: 8em;
@@ -234,7 +262,29 @@ section {
     border-top: var(--inner-border-width) var(--primary-border-color) double;
     font-family: var(--primary-font);
     text-shadow: 1px 2px var(--primary-border-color);
+    overflow: hidden;
+
 }
+
+/* marquee styling */
+#musicplayer .songtitle p {
+    margin: .5em 0;
+    width: 10em;
+    white-space: nowrap;
+    animation: marquee2 8s linear infinite;
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(150%);
+  }
+
+  100% {
+    transform: translateX(-500%);
+  }
+
+}
+
 
 .controls{
     font-size: 1rem !important; /* size of controls */

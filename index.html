@@ -11,15 +11,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
     <script src="index.js" defer></script>
+    <script src="https://iframe.chat/scripts/main.min.js"></script>
     <title>HTML + CSS</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="main-website">
     <section class="header-section">
-      <marquee> Welcome to my Website! </marquee>
+      <div class="marquee">
+        <p id="random-quote"></p>
+      </div>
     </section>
     <section id="center-section">
       <section class="sidebar-section left">
@@ -48,6 +51,9 @@
               <li>Manga & Anime</li>
             </div>
             <div class="directory-section">
+              <li>Books</li>
+            </div>
+            <div class="directory-section">
               <li>Movies</li>
             </div>
             <div class="directory-section">
@@ -68,14 +74,23 @@
 
         </div>
         <div class="desktop-title-bar">
-          <h2 class="clear-h-style"> Header </h2>
+          <h2 class="clear-h-style"> Chatbox </h2>
           <div class="desktop-corner-icons">
             <div>-</div>
             <div>X</div>
             <div>☐</div>
           </div>
         </div>   
-        <div class="inner-sidebar-section"> placeholder </div>
+        <div class="inner-sidebar-section" id="chatbox"> 
+          <!-- Credits to Chattable for this chatbox -->
+          <iframe src='https://iframe.chat/embed?chat=55871673' id='chattable' frameborder='none'></iframe>
+          <script>
+            chattable.initialize({
+              stylesheet : "chattable.css"
+            });
+          </script>
+        
+        </div>
        
       </section>
       <section class="main-page-section">
@@ -106,7 +121,6 @@
               Below is a piece of music that I composed using Earsketch. I hope you like the website. Thank you for reading! :3	
             </p>
 
-          <iframe></iframe>
           </div>
         </div>
       </section>
@@ -120,7 +134,7 @@
           </div>
         </div>
         <div class="inner-sidebar-section" id="random-art-section"> 
-            <img src = "https://www.kunstloft.com/magazine/wp-content/uploads/2023/07/Bridge-over-a-pond-with-lilies-scaled-1-2000x1931.jpeg">
+            <img src = "https://www.kunstloft.com/magazine/wp-content/uploads/2023/07/Bridge-over-a-pond-with-lilies-scaled-1-2000x1931.jpeg" onclick="randomizeArt()">
             <p>"Bridge over a Pond of Water Lilies" (1899) by Claude Monet</p>
         </div>
         <div class="desktop-title-bar">
@@ -134,8 +148,8 @@
         </div>
         <div id="musicplayer" class="inner-sidebar-section">
                         <!-- Music player by adilene@adilene.net! Much thanks to them ^^ -->
-                        <div>
-                            <marquee scrollamount="8" class="songtitle"></marquee>
+                        <div class="marquee songtitle">
+                            <p>me</p>
                         </div>
                         
                         <section id="musicplayer-buttons">

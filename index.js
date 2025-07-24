@@ -1,32 +1,75 @@
-const phrases = [
-    "Evil is always possible. And goodness is eternally difficult.",
-    "The world changes, we do not, therein lies the irony that kills us.",
-    "The only power that exists is inside ourselves.",
-    "Like all strong people, she suffered always a measure of loneliness; she was a marginal outsider, a secret infidel of a certain sort.",
-    "It was as if the empty nights were made for thinking of him. And sometimes I found myself so vividly aware of him it was as if he had only just left the room and the ring of his voice were still there. And somehow, there was a disturbing comfort in that, and, despite myself, I’d envision his face.",
-    "Do you know what it means to be loved by Death?... Do you know what it means to have Death know your name?",
-    "As if the night had said to me, ‘You are the night and the night alone understands you and enfolds you in its arms’ One with the shadows. Without nightmare. An inexplicable peace.",
+// Changes the quote at the end of every animation
+
+ const phrases = [
+    "Be yourself; everyone else is already taken.",
+    "To live is the rarest thing in the world. Most people exist, that is all.",
+    "We are all in the gutter, but some of us are looking at the stars.",
+    "If one cannot enjoy reading a book over and over again, there is no use in reading it at all.",
+    "It is what you read when you don't have to that determines what you will be when you can't help it.",
+    "Yes: I am a dreamer. For a dreamer is one who can only find his way by moonlight, and his punishment is that he sees the dawn before the rest of the world.",
+    "The truth is rarely pure and never simple.",
     "How pathetic it is to describe these things which can't truly be described.",
-    "I was a newborn vampire, weeping at the beauty of the night.",
-    "I lived like a man who wanted to die but who had no courage to do it himself.",
-    "My last sunrise. That morning, I was not yet a vampire. And I saw my last sunrise. I remember it completely; yet I do not think I remember any other sunrise before it.",
-    "Because no one could in any guise convince me of what I myself knew to be true, that I was damned in my own mind and soul.",
-    "That is the crowning evil, that we can even go so far as to love each other, you and I. And who else would show us a particle of love, a particle of compassion or mercy? Who else, knowing us as we know each other, could do anything but destroy us? Yet we can love each other.",
+    "You can never be overdressed or overeducated.",
+    "A good friend will always stab you in the front.",
+    "Some things are more precious because they don't last long.",
+    "I am not young enough to know everything.",
+    "To define is to limit.",
+    "To love oneself is the beginning of a lifelong romance.",
+    "Nowadays people know the price of everything and the value of nothing.",
+    "With freedom, flowers, books, and the moon, who could not be perfectly happy?",
+    "I never travel without my diary. One should always have something sensational to read in the train.",
   ];
-  
-  // Function that takes a list of items, and returns a random item
-  const randomItem = Math.floor(Math.random() * phrases.length);
+ 
+  let randomItem = Math.floor(Math.random() * phrases.length);
+  const animated = document.querySelector("#random-quote");
 
-  document.getElementById("random-quote").innerHTML =  phrases[randomItem];
+  animated.textContent =  phrases[randomItem];
 
 
+//Add animation event listener to change the quote when animation ends
+animated.addEventListener('animationiteration', () => {
+  console.log('Animation ended');
+  randomItem = Math.floor(Math.random() * phrases.length);
+  console.log(randomItem);
+  animated.textContent =  phrases[randomItem];
+});
+
+// Code for generating random art on every reload or click
+
+const art_dictionary = {
+    "Bridge over a Pond of Water Lilies by Claude Monet (1899)": "https://files.catbox.moe/mpp3u7.jpeg",
+    "Impression, Sunrise by Claude Monet (1872)": "https://files.catbox.moe/z5z3g4.webp",
+    "A Bar at the Folies-Bergère by Éduoard Manet (1882)": "https://files.catbox.moe/5fnxjj.webp",
+    "Berthe Morisot with a Bouquet of Violets by Éduoard Manet (1872)": "https://files.catbox.moe/elamhz.jpg",
+    "Hyde Park, London by Camille Pissarro (1890) ": "https://files.catbox.moe/a38dtt.jpg",
+    "Jeanne Samary in a Low Necked Dress by Pierre-Auguste Renoir (1877)": "https://files.catbox.moe/e4kzsp.jpg",
+    "Study, The Water's Edge by Berthe Morisot (1864)": "https://files.catbox.moe/m2s84n.jpg",
+    "Haystack by Claude Monet (1865)":"https://files.catbox.moe/9ihflb.jpg",
+    "Music in the Tuileries Garden by Éduoard Manet (1862)": "https://files.catbox.moe/4ig76x.jpg",
+    "Portrait of Madame Claude Monet by Pierre-Auguste Renoir (1872)":"https://files.catbox.moe/wyazg6.jpg",
+    "Portrait of Auguste Renoir by Frederic Bazille (1867)": "https://files.catbox.moe/lwom2j.jpg",
+    "En été (La Bohémienne) by Pierre-Auguste Renoir (1868)": "https://files.catbox.moe/om62f0.jpg",
+}
+
+function randomizeArt(){
+    let art_dictionary_keys = Object.keys(art_dictionary)
+    let randomIndex = Math.floor(Math.random() * (art_dictionary_keys.length))
+    console.log(Math.random() * art_dictionary_keys.length)
+    let img = document.querySelector("#random-art-section img")
+    let caption = document.querySelector("#random-art-section p")
+    
+    img.setAttribute("src", art_dictionary[art_dictionary_keys[randomIndex]])
+    caption.textContent =  art_dictionary_keys[randomIndex]
+
+}
+
+randomizeArt()
   
   
-  
-  // Music player code
+ // Music player code
 
                           // initiate variables
-                          let track_name = document.querySelector(".songtitle");
+                          let track_name = document.querySelector(".songtitle p");
                  
                           let playpause_btn = document.querySelector(".playpause-track");
                           let next_btn = document.querySelector(".next-track");
@@ -34,12 +77,8 @@ const phrases = [
                    
                           let seek_slider = document.querySelector(".seek_slider");
                           let curr_time = document.querySelector(".current-time");
-                          let total_duration = document.querySelector(".total-duration");
-
-                          let prev_trackname = document.querySelector("#prev-trackname");
-                          let next_trackname = document.querySelector("#next-trackname");
-
-                   
+                          let total_duration = document.querySelector(".total-duration")
+                  
                           let track_index = 0;
                           let isPlaying = false;
                           let updateTimer;
@@ -54,40 +93,72 @@ const phrases = [
                           // CATBOX.MOE IS RECOMMENDED FOR UPLOADING MP3 FILES
                           let track_list = [
                               {
-                                  name: "liebestraum - franz liszt",
-                                  path: "https://files.catbox.moe/klg5f2.mp3"
+                                  name: "fragile - laufey",
+                                  path: "https://files.catbox.moe/nurp83.mp3"
                               },
                               {
-                                  name: "waltz no. 10 in b minor, op. 69 no. 2 - frédéric chopin",
-                                  path: "https://files.catbox.moe/joyghy.mp3"
+                                  name: "beautiful stranger - laufey",
+                                  path: "https://files.catbox.moe/n0eazw.mp3"
                               },
                               {
-                                  name: "16 waltzes, op 39: no. 9 in d minor - johannes brahms",
-                                  path: "https://files.catbox.moe/wlgnwr.mp3"
+                                  name: "valentine - fragile",
+                                  path: "https://files.catbox.moe/rstgxn.mp3"
                               },
                               {
-                                  name: "5 pieces, op. 75, 'the trees': no. 5 granen (the spruce) - jean sibelius",
-                                  path: "https://files.catbox.moe/nqrcj7.mp3",
+                                  name: "above the chinese restaurant - laufey",
+                                  path: "https://files.catbox.moe/sdwgvd.mp3",
                               },
                               {
-                                  name: "deux arabesques, l. 66, cd 74: i. première arabesque - claude debussy",
-                                  path: "https://files.catbox.moe/cps6ki.mp3",
+                                  name: "dear soulmate - laufey",
+                                  path: "https://files.catbox.moe/jg4kxc.mp3",
                               },
-                              
-                          ];
+                              {
+                                  name: "what love will do to you - laufey",
+                                  path: "https://files.catbox.moe/iws6sr.mp3",
+                              },
+                              {
+                                  name: "i've never been in love before - laufey",
+                                  path: "https://files.catbox.moe/p2ymwi.mp3",
+                              },
+                              {
+                                  name: "just like chet - laufey",
+                                  path: "https://files.catbox.moe/r2v4a2.mp3",
+                              },
+                              {
+                                  name: "everything i know about love - laufey",
+                                  path: "https://files.catbox.moe/smisf8.mp3",
+                              },
+                              {
+                                  name: "falling behind - laufey",
+                                  path: "https://files.catbox.moe/9cg3lr.mp3",
+                              },
+                              {
+                                  name: "hi - laufey",
+                                  path: "https://files.catbox.moe/7hfmjf.mp3",
+                              },
+                              {
+                                  name: "dance with you tonight - laufey",
+                                  path: "https://files.catbox.moe/dhqwma.mp3",
+                              },
+                              {
+                                  name: "night light - laufey",
+                                  path: "https://files.catbox.moe/iwi3no.mp3",
+                              },
+                            ];
                           //
                           //
                           //
                           //
                           //
                    
+                          // Changes the title on every iteration
                           function loadTrack(track_index) {
                               clearInterval(updateTimer);
                               resetValues();
                    
                               // load a new track
                               curr_track.src = track_list[track_index].path;
-                              curr_track.volume = 0.05;
+                              curr_track.volume = 1;
                               curr_track.load();
                               
                               // update details of the track
@@ -133,8 +204,11 @@ const phrases = [
                    
                           // moves to the next track (slightly modded by the owner of the site to include prev and next song names)
                           function nextTrack() {
-                            track_index = (track_index + 1) % track_list.length
-;                           console.log(track_index)
+                            track_index += 1
+                            if (track_index > track_list.length - 1) {
+                                track_index = 0
+                            };                           
+                            console.log(track_index)
 
                             loadTrack(track_index);
                             playTrack();
@@ -143,7 +217,10 @@ const phrases = [
                    
                           // moves to the previous track
                           function prevTrack() {
-                            track_index = (track_index - 1) % track_list.length
+                            track_index -= 1
+                            if (track_index < 0) {
+                                track_index = track_list.length - 1
+                            }
                             console.log(track_index)
 
                             loadTrack(track_index);
